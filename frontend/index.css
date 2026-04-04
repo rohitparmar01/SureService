@@ -1,0 +1,38 @@
+
+
+/* Notification Animations */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+/* Modal and Overlay Fixes */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Ensure modals are always on top */
+.modal-backdrop {
+  isolation: isolate;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}

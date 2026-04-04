@@ -1,0 +1,273 @@
+/* FilterPanel Custom Styles */
+
+/* Fade-in animation for sub-service dropdown */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Custom range slider styling for better cross-browser support */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.5);
+}
+
+/* Select dropdown hover effects */
+select {
+  background-image: none;
+}
+
+select:hover {
+  border-color: #d1d5db;
+}
+
+/* Focus states */
+input:focus,
+select:focus {
+  outline: none;
+}
+
+/* Smooth transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================================
+   MARKETPLACE FILTER PANEL STYLES
+   ================================================ */
+
+.filter-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+/* Header */
+.filter-panel-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+.filter-header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-header-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.filter-header-title .filter-icon {
+  color: #6366f1;
+}
+
+.filter-badge {
+  background: #6366f1;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.clear-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-all-btn:hover {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #dc2626;
+}
+
+/* Filter Groups */
+.filter-group {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+}
+
+.filter-group-header {
+  width: 100%;
+  padding: 16px 20px;
+  background: white;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-align: left;
+}
+
+.filter-group-header:hover {
+  background: #f9fafb;
+}
+
+.filter-group-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group-count {
+  font-size: 13px;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.filter-group-content {
+  padding: 0 20px 16px 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+/* Filter Options */
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-checkbox,
+.filter-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.filter-checkbox:hover,
+.filter-radio:hover {
+  background: #f3f4f6;
+}
+
+.filter-checkbox input[type="checkbox"],
+.filter-radio input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #6366f1;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  font-size: 14px;
+  color: #374151;
+}
+
+.filter-label .filter-icon {
+  font-size: 16px;
+}
+
+.filter-count {
+  margin-left: auto;
+  font-size: 13px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Budget ranges */
+.budget-range-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filter-panel {
+    position: static;
+    margin-bottom: 20px;
+  }
+  
+  .filter-panel-header {
+    padding: 16px;
+  }
+  
+  .filter-group-header {
+    padding: 14px 16px;
+  }
+  
+  .filter-group-content {
+    padding: 0 16px 14px 16px;
+  }
+}
