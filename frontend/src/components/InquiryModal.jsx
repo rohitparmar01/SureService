@@ -87,8 +87,8 @@ const InquiryModal = ({
         userContact: (isAuthenticated() && user?.phone) ? user.phone : '',
         budget: preBudget,
         message: '', // Explicit empty string prevents undefined
-        eventStart: preStart ? String(preStart).slice(0,10) : '',
-        eventEnd: preEnd ? String(preEnd).slice(0,10) : ''
+        serviceStart: preStart ? String(preStart).slice(0,10) : '',
+        serviceEnd: preEnd ? String(preEnd).slice(0,10) : ''
       });
 
       // If an end date was provided and differs from start, enable multi-day UI
@@ -269,13 +269,13 @@ const InquiryModal = ({
         budget: formData.budget ? parseInt(formData.budget) : 0,
         // Structured eventDate: Send as Date string for single-day, {start, end} for multi-day
         eventDate: (() => {
-          const s = formData.eventStart ? new Date(formData.eventStart) : null;
+          const s = formData.serviceStart ? new Date(formData.serviceStart) : null;
           if (!s) return undefined;
           
-          // Check if multi-day event: isMultiDay checked AND eventEnd exists AND different from eventStart
-          const e = formData.eventEnd ? new Date(formData.eventEnd) : null;
+          // Check if multi-day event: isMultiDay checked AND serviceEnd exists AND different from serviceStart
+          const e = formData.serviceEnd ? new Date(formData.serviceEnd) : null;
           const isMultiDayEvent = isMultiDay && e && !isNaN(e.getTime()) && 
-            formData.eventEnd !== formData.eventStart;
+            formData.serviceEnd !== formData.serviceStart;
           
           if (isMultiDayEvent) {
             // Multi-day event: send {start, end}
@@ -651,23 +651,23 @@ const InquiryModal = ({
               {/* Start Date (required) */}
               <input
                 type="date"
-                id="eventStart"
-                name="eventStart"
-                value={formData.eventStart}
+                id="serviceStart"
+                name="serviceStart"
+                value={formData.serviceStart}
                 onChange={(e) => {
                   handleChange(e);
                   // if end date is before new start, clear end date
-                  if (formData.eventEnd && new Date(formData.eventEnd) < new Date(e.target.value)) {
-                    setFormData(prev => ({ ...prev, eventEnd: '' }));
+                  if (formData.serviceEnd && new Date(formData.serviceEnd) < new Date(e.target.value)) {
+                    setFormData(prev => ({ ...prev, serviceEnd: '' }));
                     setIsMultiDay(false);
                   }
                 }}
                 min={todayStr}
-                className={`w-full px-3 py-2.5 border rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all ${errors.eventStart ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                className={`w-full px-3 py-2.5 border rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all ${errors.serviceStart ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                 required
               />
-              {errors.eventStart && (
-                <p className="mt-1 text-xs text-red-600">{errors.eventStart}</p>
+              {errors.serviceStart && (
+                <p className="mt-1 text-xs text-red-600">{errors.serviceStart}</p>
               )}
 
               {/* Multi-day toggle */}
